@@ -1,0 +1,77 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "address": "123 Main St",
+      "rent": 1200,
+      "occupancyStatus": "Occupied",
+      "tenants": [
+        {
+          "id": 1,
+          "name": "John Doe",
+          "email": "john.doe@example.com",
+          "leaseStart": "2022-05-01",
+          "leaseEnd": "2023-04-30",
+          "rentPaid": true,
+          "rentAmount": 1200
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "address": "456 Elm St",
+      "rent": 1500,
+      "occupancyStatus": "Vacant",
+      "tenants": []
+    },
+    {
+      "id": 3,
+      "address": "789 Oak Ave",
+      "rent": 1800,
+      "occupancyStatus": "Occupied",
+      "tenants": [
+        {
+          "id": 2,
+          "name": "Jane Smith",
+          "email": "jane.smith@example.com",
+          "leaseStart": "2023-03-01",
+          "leaseEnd": "2024-02-29",
+          "rentPaid": false,
+          "rentAmount": 1800
+        }
+      ]
+    }
+  ],
+  "maintenanceRequests": [
+    {
+      "id": 1,
+      "propertyId": 1,
+      "description": "Leaky faucet in the kitchen",
+      "status": "Open",
+      "priority": "Medium"
+    },
+    {
+      "id": 2,
+      "propertyId": 3,
+      "description": "Broken door handle in Bedroom 2",
+      "status": "In Progress",
+      "priority": "High"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "tenantId": 1,
+      "amount": 1200,
+      "date": "2023-05-01",
+      "status": "Paid"
+    },
+    {
+      "id": 2,
+      "tenantId": 2,
+      "amount": 1800,
+      "date": "2023-05-10",
+      "status": "Pending"
+    }
+  ]
+}
