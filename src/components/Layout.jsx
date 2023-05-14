@@ -4,7 +4,7 @@ import Footer from './Footer';
 const Layout = ({children}) => {
   return (
     <>
-      <div className='layout'>
+      <div className='d-flex flex-column' style={{ minHeight: '100vh'}}>
         <Nav />
         <div>{children}</div>
         <Footer />

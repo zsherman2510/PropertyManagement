@@ -5,8 +5,35 @@ import MaintenanceSummary from "./MaintenanceSummary";
 import ExpenseSummary from "./ExpenseSummary";
 import PaymentsSummary from "./PaymentsSummary";
 
-const Dashboard = ({ data }) => {
-  const { expenses, payments, maintenanceRequests } = data;
+const Dashboard = () => {
+
+  const [data, setData] = useState([]);
+  const [properties, setProperties] = useState([]);
+  const [maintenanceRequests, setMaintenanceRequests] = useState([]);
+  const [payments, setPayments] = useState([]);
+  const [expenses, setExpenses] = useState([]);
+  const [tenants, setTenants] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        console.log('fetch data')
+        const mockResponse = await fetch("data.json");
+        const res = await mockResponse.json();
+        const { expenses, maintenanceRequests, payments, properties, tenants } = res;
+        setMaintenanceRequests(maintenanceRequests);
+        setPayments(payments);
+        setProperties(properties);
+        setExpenses(expenses);
+        setTenants(tenants);
+      } catch(error) {
+        <div> early fethcing data</div>
+      }
+      
+    }
+
+    fetchData();
+  }, []);
   return (
     <div>
       <PropertySummary />

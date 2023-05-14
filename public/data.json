@@ -109,6 +109,44 @@
       "amount": 300.25,
       "date": "2023-05-12"
     }
+  ],
+  "tenants" : [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "leaseStart": "2021-08-01",
+      "leaseEnd": "2022-07-31",
+      "rentPaid": true,
+      "rentAmount": 1200
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "leaseStart": "2021-09-01",
+      "leaseEnd": "2022-08-31",
+      "rentPaid": false,
+      "rentAmount": 1500
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob.johnson@example.com",
+      "leaseStart": "2022-03-15",
+      "leaseEnd": "2023-03-14",
+      "rentPaid": true,
+      "rentAmount": 1350
+    },
+    {
+      "id": 4,
+      "name": "Alice Williams",
+      "email": "alice.williams@example.com",
+      "leaseStart": "2022-06-01",
+      "leaseEnd": "2023-05-31",
+      "rentPaid": true,
+      "rentAmount": 1450
+    }
   ]
 }
 

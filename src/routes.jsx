@@ -3,39 +3,37 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Layout from "./components/Layout";
 import MaintenanceRequests from "./components/Pages/MaintenanceRequests";
+import Payments from "./components/Pages/Payments";
+import Tenants from "./components/Pages/Tenants";
+import Properties from "./components/Pages/Properties";
 
 const AppRouter = () => {
-  const [data, setData] = useState([]);
-  const [properties, setProperties] = useState([]);
-  const [maintenanceRequests, setMaintenanceRequests] = useState([]);
-  const [payments, setPayments] = useState([]);
-  const [expenses, setExpenses] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const mockResponse = await fetch("/data.json");
-      const res = await mockResponse.json();
-      console.log(res, "res");
-      const { expenses, maintenanceRequests, payments, properties } = res;
-      setMaintenanceRequests(maintenanceRequests);
-      setPayments(payments);
-      setProperties(properties);
-      setExpenses(expenses);
-      setData(res);
-    };
-
-    fetchData();
-  }, []);
+  
 
   return (
     <Router>
       <Layout>
         <Routes>
-          <Route exact path="/" element={<App data={data} />} />
+          <Route exact path="/" element={<App />} />
           <Route
             exact
             path="/maintenance"
-            element={<MaintenanceRequests maintenanceRequests={maintenanceRequests} />}
+            element={<MaintenanceRequests />}
+          />
+          <Route
+            exact
+            path="/properties"
+            element={<Properties />}
+          />
+          <Route
+            exact
+            path="/payments"
+            element={<Payments />}
+          />
+          <Route
+            exact
+            path="/tenants"
+            element={<Tenants  />}
           />
         </Routes>
       </Layout>

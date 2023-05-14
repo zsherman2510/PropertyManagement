@@ -251,10 +251,12 @@ li {
 }
 
 .footer {
+  margin-top: auto;
   padding: 10px 0;
   text-align: center;
   background-color: #68d391
 }
+
 
 
 @media (prefers-color-scheme: light) {

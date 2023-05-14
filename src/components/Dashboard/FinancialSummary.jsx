@@ -4,7 +4,7 @@ import TableComponent from '../UIComponents/TableComponent';
 
 const FinancialSummary = ({ incomeItems, expenseItems }) => {
   // Get the most recent income and expense items (up to 5 items)
-  const recentIncomeItems = incomeItems.slice(0, 5);
+  // const recentIncomeItems = incomeItems.slice(0, 5);
   const sortByDate = expenseItems.sort((a, b) => new Date(b.date) - new Date(a.date))
   const recentExpenses = sortByDate.slice(0, 5);
   // Calculate the total income and total expenses
