@@ -1,5 +1,6 @@
 import React from 'react';
 import SummaryItem from '../UIComponents/SummaryItem';
+import TableComponent from '../UIComponents/TableComponent';
 
 const FinancialSummary = ({ incomeItems, expenseItems }) => {
   // Get the most recent income and expense items (up to 5 items)
@@ -21,22 +22,7 @@ const FinancialSummary = ({ incomeItems, expenseItems }) => {
       <div className="recent-requests">
         <h3>Recent Expenses</h3>
         {recentExpenses.length > 0 ? (
-          <table className="requests-table">
-          <thead>
-            <tr>
-              <th>Expense</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {recentExpenses.map((expense) => (
-              <tr key={expense.id}>
-                <td>{expense.description}</td>
-                <td>{expense.amount}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          <TableComponent data={recentExpenses} />
         ) : (
           <p>No recent expenses</p>
         )}

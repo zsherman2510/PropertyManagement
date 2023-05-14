@@ -1,5 +1,6 @@
 import React from "react";
 import SummaryItem from "../UIComponents/SummaryItem";
+import TableComponent from "../UIComponents/TableComponent";
 
 const MaintenanceSummaryWidget = ({ maintenanceRequests }) => {
   const totalRequests = maintenanceRequests.length;
@@ -30,26 +31,7 @@ const MaintenanceSummaryWidget = ({ maintenanceRequests }) => {
       <div className="recent-requests">
         <h3>Recent Requests</h3>
         {recentRequests.length > 0 ? (
-          <table className="requests-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Address</th>
-                <th>Description</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentRequests.map((request) => (
-                <tr key={request.id}>
-                  <td>{request.id}</td>
-                  <td>{request.address}</td>
-                  <td>{request.description}</td>
-                  <td>{request.status}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <TableComponent data={recentRequests}/>
         ) : (
           <p>No recent requests</p>
         )}

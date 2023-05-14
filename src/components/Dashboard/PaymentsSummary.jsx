@@ -1,5 +1,6 @@
 import React from 'react';
 import SummaryItem from '../UIComponents/SummaryItem';
+import TableComponent from '../UIComponents/TableComponent';
 
 const PaymentsSummary = ({ payments }) => {
   const totalPayments = payments.length;
@@ -16,25 +17,7 @@ const PaymentsSummary = ({ payments }) => {
       <div className="recent-requests">
         <h3>Recent Payments</h3>
         {recentPayments.length > 0 ? (
-          <table className='requests-table'>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Address</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentPayments.map(payment => (
-                <tr key={payment.id}>
-                  <td>{payment.date}</td>
-                  <td>{payment.amount}</td>
-                  <td>{payment.address}</td>
-                </tr>
-              ))}
-            </tbody>
-
-          </table>
+          <TableComponent data={recentPayments} />
         ) : (
           <p>No recent payments</p>
         )}
