@@ -34,7 +34,7 @@ const Dashboard = () => {
   }, []);
   return (
     <div>
-      <PropertySummary />
+      <PropertySummary properties={properties} />
       <div className="container d-flex justify-content-between p-0 mt-4">
         <div className="col-md-6">
           <FinancialSummary expenseItems={expenses} incomeItems={payments} />
