@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 
-const SummaryItem = ({ title, value, color }) => {
+const SummaryItem = ({label, value}) => {
   return (
-    <div className="dashboard-widget" style={{ background: color }}>
-      <h3 className="widget-value">{value}</h3>
-      <p className="widget-title">{title}</p>
-    </div>
-  );
-};
+    <div className="summary-item">
+        <span className="summary-label">{label}</span>
+        <span className="summary-value">{value}</span>
+      </div>
+  )
+}
 
-export default SummaryItem;
+export default SummaryItem
