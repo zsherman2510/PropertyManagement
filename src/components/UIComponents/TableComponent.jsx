@@ -1,20 +1,39 @@
 import React from 'react'
 
 const TableComponent = ({data}) => {
-  console.log(data, 'data')
-  const headers = Object.keys(data[0]);
+  const headers = Object.keys(data[0]).map((header) => {
+    const capitalizedHeader = header.charAt(0).toUpperCase() + header.slice(1);
+    return capitalizedHeader;
+  });
+
+  const renderCellValue = (value) => {
+    if (Array.isArray(value)) {
+      return value.map((obj, index) => (
+        <>
+         <span key={index}>{obj.name}</span>
+        {" "}
+        </>
+       
+      ))
+    }
+    return value;
+  };
+
   return (
     <table className='requests-table'>
     <thead>
+      <tr>
       {headers.map((header) => (
-        <td>{header}</td>
+        <th key={header}>{header}</th>
       ))}
+      </tr>
+
     </thead>
     <tbody>
-        {data.map((row, rowIndex) => (
-          <tr key={rowIndex}>
+        {data.map((row) => (
+          <tr key={row.id}>
             {Object.keys(row).map((property, propertyIndex) => (
-              <td key={propertyIndex}>{row[property]}</td>
+              <td key={propertyIndex}>{renderCellValue(row[property])}</td>
             ))}
           </tr>
         ))}

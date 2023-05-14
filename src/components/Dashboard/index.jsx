@@ -7,7 +7,6 @@ import PaymentsSummary from "./PaymentsSummary";
 
 const Dashboard = () => {
 
-  const [data, setData] = useState([]);
   const [properties, setProperties] = useState([]);
   const [maintenanceRequests, setMaintenanceRequests] = useState([]);
   const [payments, setPayments] = useState([]);
@@ -17,7 +16,6 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('fetch data')
         const mockResponse = await fetch("data.json");
         const res = await mockResponse.json();
         const { expenses, maintenanceRequests, payments, properties, tenants } = res;
