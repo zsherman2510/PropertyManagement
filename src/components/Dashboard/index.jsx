@@ -45,7 +45,7 @@ const Dashboard = () => {
           <PaymentsSummary payments={payments} />
         </div>
       </div>
-      <div className="container p-0 d-flex mt-4">
+      <div className="container p-0 d-flex my-4">
         <div className="col-12">
           <MaintenanceSummary maintenanceRequests={maintenanceRequests} />
         </div>
