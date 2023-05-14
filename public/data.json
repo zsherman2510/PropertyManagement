@@ -46,6 +46,7 @@
     {
       "id": 1,
       "propertyId": 1,
+      "address": "123 Main St",
       "description": "Leaky faucet in the kitchen",
       "status": "Open",
       "priority": "Medium"
@@ -53,6 +54,7 @@
     {
       "id": 2,
       "propertyId": 3,
+      "address": "789 Oak Ave",
       "description": "Broken door handle in Bedroom 2",
       "status": "In Progress",
       "priority": "High"
@@ -64,14 +66,49 @@
       "tenantId": 1,
       "amount": 1200,
       "date": "2023-05-01",
-      "status": "Paid"
+      "status": "Paid",
+      "address": "123 Main St"
     },
     {
       "id": 2,
       "tenantId": 2,
       "amount": 1800,
       "date": "2023-05-10",
-      "status": "Pending"
+      "status": "Pending",
+      "address": "789 Oak Ave"
+    }
+  ],
+  "expenses": [
+    {
+      "id": 1,
+      "description": "Office Supplies",
+      "amount": 150.5,
+      "date": "2023-05-01"
+    },
+    {
+      "id": 2,
+      "description": "Internet Bill",
+      "amount": 75.0,
+      "date": "2023-05-05"
+    },
+    {
+      "id": 3,
+      "description": "Maintenance Service",
+      "amount": 250.75,
+      "date": "2023-05-07"
+    },
+    {
+      "id": 4,
+      "description": "Advertising Campaign",
+      "amount": 500.0,
+      "date": "2023-05-10"
+    },
+    {
+      "id": 5,
+      "description": "Property Insurance",
+      "amount": 300.25,
+      "date": "2023-05-12"
     }
   ]
 }
+
