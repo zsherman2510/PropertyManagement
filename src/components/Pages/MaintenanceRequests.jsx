@@ -12,7 +12,6 @@ const MaintenanceRequests = () => {
       try {
         const response  = await fetch('data.json');
         const { maintenanceRequests } = await response.json();
-        console.log(maintenanceRequests, 'res');
         setRequests(maintenanceRequests);
       } catch(error) {
         setError(error);
@@ -24,7 +23,7 @@ const MaintenanceRequests = () => {
   }, []);
 
   return (
-    <div className="maintenance-requests-widget">
+    <div className="table-widget">
       <h2>Maintenance Requests</h2>
       {requests.length === 0 ? (
         <p>No maintenance requests</p>
