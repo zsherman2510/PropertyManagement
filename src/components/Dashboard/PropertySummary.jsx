@@ -25,10 +25,10 @@ const PropertySummary = ({ properties }) => {
 
   return (
     <div className="container property-summary">
-      <DashboardWidget title="Total Properties" value={totalProperties} color="#E4F2F5" />
-      <DashboardWidget title="Vacant Units" value={vacantUnits} color="#DFF0D8" />
-      <DashboardWidget title="Occupied Units" value={occupiedUnits} color="#F5F5F5" />
-      <DashboardWidget title="Lease Expirations" value={leaseExpirations} color="#E9E4F0" />
+      <DashboardWidget title="Total Properties" value={totalProperties} color="#1a73e8" />
+      <DashboardWidget title="Vacant Units" value={vacantUnits} color="#1a73e8" />
+      <DashboardWidget title="Occupied Units" value={occupiedUnits} color="#1a73e8" />
+      <DashboardWidget title="Lease Expirations" value={leaseExpirations} color="#1a73e8" />
     </div>
   );
 };

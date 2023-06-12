@@ -15,14 +15,14 @@ const FinancialSummary = ({ payments, months, monthlyGoal }) => {
         label: 'Total Rent Amount',
         data: monthlyTotals,
         fill: false,
-        borderColor: 'rgba(54, 162, 235, 1)',
+        borderColor: '#1a73e8',
         tension: 0.3,
       },
       {
         label: 'Goal',
         data: Array(months.length).fill(monthlyGoal),
         fill: false,
-        borderColor: 'rgba(255, 99, 132, 1)',
+        borderColor: '#4caf50',
         tension: 0.3,
       },
     ],
@@ -42,7 +42,7 @@ const FinancialSummary = ({ payments, months, monthlyGoal }) => {
 
   return (
     <div className="dashboard-background p-3">
-      <h2>Monthly Rent Payments</h2>
+      <h2 className="font-bold">Monthly Rent Payments</h2>
       <Line data={data} options={options} />
     </div>
   );

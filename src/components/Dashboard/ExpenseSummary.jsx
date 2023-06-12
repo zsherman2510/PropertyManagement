@@ -5,11 +5,6 @@ import { Bar } from "react-chartjs-2";
 
 const ExpenseSummary = ({ expenses }) => {
   const [loading, setLoading] = useState(false);
-  const startDate = '2023-05-01';
-  const endDate = '2023-06-30';
-  const filteredExpenses = expenses.filter(
-    (expense) => expense.date >= startDate && expense.date <= endDate
-  );
 
   // Calculate total expenses by category
   const categories = Array.from(new Set(expenses.map((expense) => expense.category)));
@@ -17,10 +12,9 @@ const ExpenseSummary = ({ expenses }) => {
   categories.forEach((category) => {
     totalExpenses[category] = 0;
   });
-  filteredExpenses.forEach((expense) => {
+  expenses.forEach((expense) => {
     totalExpenses[expense.category] += expense.amount;
   });
-  const recentExpenses = expenses.slice(0, 5); // Show the 5 most recent expenses
   // Chart options
   const chartOptions = {
     scales: {
@@ -48,7 +42,7 @@ const ExpenseSummary = ({ expenses }) => {
       {
         label: 'Total Expenses',
         data: Object.values(totalExpenses),
-        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+        backgroundColor: '#1a73e8',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
       },
@@ -56,8 +50,8 @@ const ExpenseSummary = ({ expenses }) => {
   };
 
   return (
-    <div className="expense-summary-widget">
-      <h2>Total Expenses by Category - {startDate} to {endDate}</h2>
+    <div className="dashboard-background p-3">
+      <h2 className="font-bold">Total Expenses by Category </h2>
       <Bar data={chartData} options={chartOptions} />
     </div>
   );

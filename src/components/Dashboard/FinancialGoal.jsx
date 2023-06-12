@@ -2,15 +2,18 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 
 const FinancialGoal = ({ goalAmount, goalPercentage }) => {
-  console.log(goalAmount, goalPercentage, "goalamount", "goalpercentage");
-  const currentDifference = 100 - goalPercentage;
+
+  const dollarGoalAmount = goalAmount.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
   const data = {
     labels: ["Current", "Goal"],
     datasets: [
       {
         label: "Progression",
         data: [goalPercentage, 100 - goalPercentage],
-        backgroundColor: ["#4caf50", "#f1f1f1"],
+        backgroundColor: ["#1a73e8", "#f1f1f1"],
         borderWidth: 0,
       },
     ],
@@ -50,7 +53,7 @@ const FinancialGoal = ({ goalAmount, goalPercentage }) => {
   };
   return (
     <div className="dashboard-background p-3">
-      <h2 className="text-center mb-5">Monthly Goal Progression</h2>
+      <h2 className="text-center mb-5 font-bold">Monthly Goal Progression</h2>
 
       <Doughnut
         id="doughnutChart"
@@ -61,7 +64,7 @@ const FinancialGoal = ({ goalAmount, goalPercentage }) => {
 
       <div className="mt-5 text-center">
         <span className="goal-amount-label font-bold">Goal Amount:</span>
-        <span className="goal-amount-value ml-2">{goalAmount}</span>
+        <span className="goal-amount-value ml-2">{dollarGoalAmount}</span>
       </div>
     </div>
   );

@@ -7,6 +7,8 @@ import MaintenanceSummary from "./MaintenanceSummary";
 import ExpenseSummary from "./ExpenseSummary";
 import PaymentsSummary from "./PaymentsSummary";
 import FinancialGoal from "./FinancialGoal";
+import MaintenanceRequestsChart from "./MaintenanceChart";
+import OverallSummary from "./OverallSummary";
 
 Chart.register(CategoryScale);
 
@@ -51,34 +53,44 @@ const Dashboard = () => {
     const totalAmount = monthlyPayments.reduce((sum, payment) => sum + payment.amount, 0);
     return { monthlyPayments, totalAmount };
   });
-
+  //const totalIncome = payments.reduce((sum, payment) => sum + payment.amount, 0);
+  const totalIncome = payments.reduce((sum, payment) => sum + payment.amount, 0)
   const totalMonthlyIncome = calculateAverageMonthlyIncome(payments);
   console.log(totalMonthlyIncome, 'totalMonthlyIncome'); // Output: 9000
 
-  console.log(monthlyTotals, 'montly totlas');
+  const totalExpenses = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+  console.log(totalExpenses, 'expenses')
   const goalPercentage = (totalMonthlyIncome / monthlyGoal) * 100;
   const adjustedPercentage = goalPercentage.toFixed(0);
-
+  const counts = {
+    High: 0
+  }
+  maintenanceRequests.forEach((req) => {
+    counts[req.status]++;
+  })
+  const highPriorityRequests = counts["High"];
   return (
-    <div>
-      <PropertySummary properties={properties} />
-      <div className="wrapper container d-flex flex-wrap justify-content-between p-3 mt-4 align-items-center">
+    <div className="my-4">
+      <OverallSummary monthlyIncome={totalMonthlyIncome} highPriorityRequests={highPriorityRequests} totalExpenses={totalExpenses} totalIncome={totalIncome}  />
+      <div className="wrapper container d-flex flex-wrap justify-content-around p-3 mt-4 align-items-center">
         <div className="col-12 col-sm-12 col-md-8">
           <FinancialSummary payments={payments} monthlyTotals={monthlyTotals} months={months} monthlyGoal={monthlyGoal} />
         </div>
         <div className="col-12 col-sm-12 col-md-3 my-4">
           <FinancialGoal goalAmount={monthlyGoal} goalPercentage={adjustedPercentage} />
         </div>
-      </div>
-      <div className="container p-0 d-flex my-4">
-        <div className="col-md-6">
+        <div className="col-12">
+          <PropertySummary properties={properties} />
+        </div>
+        <div className="col-12 col-sm-12 col-md-8">
           <ExpenseSummary expenses={expenses} />
         </div>
         
-        <div className="col-12">
-          <MaintenanceSummary maintenanceRequests={maintenanceRequests} />
+        <div className="col-12 col-md-3 align-self-center">
+          <MaintenanceRequestsChart maintenanceRequests={maintenanceRequests}/>
         </div>
       </div>
+
     </div>
   );
 };

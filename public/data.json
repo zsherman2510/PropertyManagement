@@ -102,8 +102,113 @@
       "description": "Broken door handle in Bedroom 2",
       "status": "In Progress",
       "priority": "High"
+    },
+    {
+      "id": 3,
+      "propertyId": 2,
+      "address": "456 Elm St",
+      "description": "Clogged sink in the bathroom",
+      "status": "Closed",
+      "priority": "Low"
+    },
+    {
+      "id": 4,
+      "propertyId": 1,
+      "address": "123 Main St",
+      "description": "Light bulb needs replacement in Living Room",
+      "status": "Open",
+      "priority": "Medium"
+    },
+    {
+      "id": 5,
+      "propertyId": 2,
+      "address": "456 Elm St",
+      "description": "Heating system not working in Bedroom 1",
+      "status": "Open",
+      "priority": "High"
+    },
+    {
+      "id": 6,
+      "propertyId": 1,
+      "address": "123 Main St",
+      "description": "Broken window in Bedroom 3",
+      "status": "Open",
+      "priority": "Medium"
+    },
+    {
+      "id": 7,
+      "propertyId": 3,
+      "address": "789 Oak Ave",
+      "description": "Leaking roof in the attic",
+      "status": "Open",
+      "priority": "High"
+    },
+    {
+      "id": 8,
+      "propertyId": 2,
+      "address": "456 Elm St",
+      "description": "Malfunctioning thermostat in the living room",
+      "status": "In Progress",
+      "priority": "Medium"
+    },
+    {
+      "id": 9,
+      "propertyId": 1,
+      "address": "123 Main St",
+      "description": "Mold growth in the basement",
+      "status": "Open",
+      "priority": "High"
+    },
+    {
+      "id": 10,
+      "propertyId": 3,
+      "address": "789 Oak Ave",
+      "description": "Flickering lights in the hallway",
+      "status": "Open",
+      "priority": "Low"
+    },
+    {
+      "id": 11,
+      "propertyId": 2,
+      "address": "456 Elm St",
+      "description": "Faulty electrical outlet in Bedroom 2",
+      "status": "In Progress",
+      "priority": "High"
+    },
+    {
+      "id": 12,
+      "propertyId": 1,
+      "address": "123 Main St",
+      "description": "Broken dishwasher in the kitchen",
+      "status": "Closed",
+      "priority": "Medium"
+    },
+    {
+      "id": 13,
+      "propertyId": 2,
+      "address": "456 Elm St",
+      "description": "Water leakage in the laundry room",
+      "status": "Open",
+      "priority": "High"
+    },
+    {
+      "id": 14,
+      "propertyId": 1,
+      "address": "123 Main St",
+      "description": "Hole in the wall in Bedroom 1",
+      "status": "Open",
+      "priority": "Medium"
+    },
+    {
+      "id": 15,
+      "propertyId": 3,
+      "address": "789 Oak Ave",
+      "description": "Faulty smoke detector in the living room",
+      "status": "In Progress",
+      "priority": "Low"
     }
   ],
+  
   "payments": [
     {
       "id": 1,
