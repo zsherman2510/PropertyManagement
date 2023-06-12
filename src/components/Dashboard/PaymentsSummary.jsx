@@ -9,7 +9,7 @@ const PaymentsSummary = ({ payments }) => {
   const sortByDate = payments.sort((a, b) => new Date(b.date) - new Date(a.date));
   const recentPayments = sortByDate.slice(0, 5);
   return (
-    <div className="payments-summary-widget p-4">
+    <div className="payments-summary-widget p-4 border-2 drop-shadow">
       <h2 className="fw-bold fs-5 mb-2">Payments Summary</h2>
       <SummaryItem label="Total Payments:" value={totalPayments} />
       <SummaryItem label="Pending Payments:" value={pendingPayments} />

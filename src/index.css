@@ -52,7 +52,14 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.wrapper {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
 
+.dashboard-background {
+  background: #fff
+}
 .navbar {
   background-color: #68d391;
   color: #fff;

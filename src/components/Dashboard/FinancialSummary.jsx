@@ -1,32 +1,49 @@
-import React from 'react';
-import SummaryItem from '../UIComponents/SummaryItem';
-import TableComponent from '../UIComponents/TableComponent';
+import React from "react";
+import { Line } from "react-chartjs-2";
 
-const FinancialSummary = ({ incomeItems, expenseItems }) => {
+const FinancialSummary = ({ payments, months, monthlyGoal }) => {
+  const monthlyTotals = months.map(month => {
+    const monthlyPayments = payments.filter(payment => payment.date.startsWith(month));
+    const totalAmount = monthlyPayments.reduce((sum, payment) => sum + payment.amount, 0);
+    return totalAmount;
+  });
+  
+  const data = {
+    labels: months,
+    datasets: [
+      {
+        label: 'Total Rent Amount',
+        data: monthlyTotals,
+        fill: false,
+        borderColor: 'rgba(54, 162, 235, 1)',
+        tension: 0.3,
+      },
+      {
+        label: 'Goal',
+        data: Array(months.length).fill(monthlyGoal),
+        fill: false,
+        borderColor: 'rgba(255, 99, 132, 1)',
+        tension: 0.3,
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1000,
+        },
+      },
+    },
+  };
   // Get the most recent income and expense items (up to 5 items)
-  // const recentIncomeItems = incomeItems.slice(0, 5);
-  const sortByDate = expenseItems.sort((a, b) => new Date(b.date) - new Date(a.date))
-  const recentExpenses = sortByDate.slice(0, 5);
-  // Calculate the total income and total expenses
-  const totalIncome = incomeItems.reduce((total, item) => total + item.amount, 0);
-  const totalExpenses = expenseItems.reduce((total, item) => total + item.amount, 0);
-
-  const netIncome = totalIncome - totalExpenses;
 
   return (
-    <div className="financial-summary-widget p-4">
-      <h2 className="fw-bold fs-5 mb-2">Financial Summary</h2>
-      <SummaryItem label="Total Income:" value={totalIncome} />
-      <SummaryItem label="Total Expenses:" value={totalExpenses} />
-      <SummaryItem label="Net Income:" value={netIncome} />
-      <div className="recent-requests">
-        <h3>Recent Expenses</h3>
-        {recentExpenses.length > 0 ? (
-          <TableComponent data={recentExpenses} />
-        ) : (
-          <p>No recent expenses</p>
-        )}
-      </div>
+    <div className="dashboard-background p-3">
+      <h2>Monthly Rent Payments</h2>
+      <Line data={data} options={options} />
     </div>
   );
 };
