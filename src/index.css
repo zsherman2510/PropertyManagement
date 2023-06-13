@@ -120,7 +120,8 @@ button:focus-visible {
   padding: 20px;
   border-radius: 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  flex-flow: wrap;
 }
 
 
@@ -170,6 +171,8 @@ button:focus-visible {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
 .table-widget h2 {
@@ -283,7 +286,6 @@ li {
   text-align: center;
   background-color: #fff;
   color: #1a73e8;
-  border: 1px solid #e9e9e9;
 }
 
 
