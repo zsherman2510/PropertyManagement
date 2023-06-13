@@ -21,7 +21,7 @@ const OverallSummary = ({ monthlyIncome, highPriorityRequests, totalExpenses, to
       <DashboardWidget title="Monthly Income" value={dollarMonthly} color="#1a73e8" />
       <DashboardWidget title="Total Income" value={dollarTotalIncome} color="#4caf50" />
       <DashboardWidget title="Total Expenses" value={dollarExpenses} color="#e53935" />
-      <DashboardWidget title="High Priority Maintenance Requests" value={highPriorityRequests} color="#ff9800" />
+      <DashboardWidget title="High Priority M/R" value={highPriorityRequests} color="#ff9800" />
     </div>
   )
 }
