@@ -1,10 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import TableComponent from '../UIComponents/TableComponent'
-import { Modal, Button } from 'react-bootstrap';
+import CustomModal from '../UIComponents/CustomModal'
+import { TextField, Button } from "@mui/material";
+
 const Properties = () => {
   const [properties, setProperties] = useState([]);
   const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+
+  const [address, setAddress] = useState("");
+  const [rent, setRent] = useState("");
+  const [occupancyStatus, setOccupancyStatus] = useState("");
+  const [propertyValue, setPropertyValue] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newProperty = {
+      address,
+      rent,
+      occupancyStatus,
+      propertyValue,
+      tenants: [],
+    };
+
+    // Call the onSubmit function with the new property object
+    onSubmit(newProperty);
+
+    // Reset the form fields
+    setAddress("");
+    setRent("");
+    setOccupancyStatus("");
+    setPropertyValue("");
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,20 +81,40 @@ const Properties = () => {
         {properties.length > 0 ? ( <TableComponent data={properties} />) : ( <p>No properties available</p>)}
       </div>
     </div>
-    { modalOpen && <Modal show={modalOpen} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>}
+    { modalOpen && 
+      (
+      <CustomModal
+        isOpen={modalOpen}
+        closeModal={handleClose}
+        title='Add Property'
+        onSubmit={handleSubmit}
+      >
+      <TextField
+        label="Address"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+      />
+      <TextField
+        label="Rent"
+        type="number"
+        value={rent}
+        onChange={(e) => setRent(e.target.value)}
+      />
+      <TextField
+        label="Occupancy Status"
+        value={occupancyStatus}
+        onChange={(e) => setOccupancyStatus(e.target.value)}
+      />
+      <TextField
+        label="Property Value"
+        type="number"
+        value={propertyValue}
+        onChange={(e) => setPropertyValue(e.target.value)}
+      />
+        
+      </CustomModal>
+      
+      )}
     </>
   )
     

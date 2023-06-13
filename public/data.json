@@ -5,6 +5,7 @@
       "address": "123 Main St",
       "rent": 1200,
       "occupancyStatus": "Occupied",
+      "propertyValue": 200000,
       "tenants": [
         {
           "id": 1,
@@ -31,6 +32,7 @@
       "address": "456 Elm St",
       "rent": 1500,
       "occupancyStatus": "Vacant",
+      "propertyValue": 180000,
       "tenants": []
     },
     {
@@ -38,6 +40,7 @@
       "address": "789 Oak Ave",
       "rent": 1800,
       "occupancyStatus": "Occupied",
+      "propertyValue": 250000,
       "tenants": [
         {
           "id": 2,
@@ -55,6 +58,7 @@
       "address": "567 Pine St",
       "rent": 1600,
       "occupancyStatus": "Occupied",
+      "propertyValue": 220000,
       "tenants": [
         {
           "id": 3,
@@ -72,6 +76,7 @@
       "address": "890 Maple Ave",
       "rent": 2000,
       "occupancyStatus": "Occupied",
+      "propertyValue": 300000,
       "tenants": [
         {
           "id": 4,
@@ -208,7 +213,7 @@
       "priority": "Low"
     }
   ],
-  
+
   "payments": [
     {
       "id": 1,
@@ -701,7 +706,7 @@
       "reason": "Repaired and maintained the property roof"
     }
   ],
-  "tenants" : [
+  "tenants": [
     {
       "id": 1,
       "name": "John Doe",
@@ -740,4 +745,3 @@
     }
   ]
 }
-

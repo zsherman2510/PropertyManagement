@@ -30,8 +30,12 @@ const TableComponent = ({data}) => {
 
     </thead>
     <tbody>
-        {data.map((row) => (
-          <tr key={row.id}>
+        {data.map((row, rowIndex) => (
+          <tr 
+            key={row.id}
+            style={{ backgroundColor: rowIndex % 2 === 0 ? '#fff' : '#f2f2f2' }}
+          
+          >
             {Object.keys(row).map((property, propertyIndex) => (
               <td key={propertyIndex}>{renderCellValue(row[property])}</td>
             ))}
